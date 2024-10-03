@@ -21,5 +21,5 @@ from reports import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('preferences/', views.preferences_view, name='preferences'),
-    path('success/', views.preferences_view, name='success_page'),
+    path('success/<int:id>/', views.preference_success, name='success_page'),
 ]
