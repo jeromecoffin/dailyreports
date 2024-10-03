@@ -1,11 +1,7 @@
 from django import forms
+from reports.models import UserPreferences
 
-class PreferencesForm(forms.Form):
-    email = forms.EmailField()
-    categories = forms.MultipleChoiceField(choices=[
-        ('tech', 'Technology'),
-        ('finance', 'Finance'),
-        ('sports', 'Sports'),
-        ('health', 'Health'),
-        ('crypto', 'Cryptocurrency'),
-    ], widget=forms.CheckboxSelectMultiple)
+class PreferencesForm(forms.ModelForm):
+    class Meta:
+        model = UserPreferences
+        fields = '__all__'
