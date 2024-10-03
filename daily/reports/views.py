@@ -6,7 +6,7 @@ def preferences_view(request):
         form = PreferencesForm(request.POST)
         if form.is_valid():
             preferences = form.save()
-            return redirect('success_page', preferences.email) 
+            return redirect('success_page') 
     else:
         form = PreferencesForm()
 
