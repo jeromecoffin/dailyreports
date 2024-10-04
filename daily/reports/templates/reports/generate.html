@@ -1,0 +1,18 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Generate Daily Reports</title>
+    <link rel="stylesheet" href="{% static 'reports/styles.css' %}" />
+</head>
+<body>
+    <h1>Manually Trigger Report Generation</h1>
+    
+    <form method="post" action="">
+        {% csrf_token %}
+        <button type="submit">Generate Reports</button>
+    </form>
+
+</body>
+</html>

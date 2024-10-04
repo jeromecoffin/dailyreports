@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('preferences/', views.preferences_view, name='preferences'),
     path('success/<int:id>/', views.preference_success, name='success_page'),
+    path('generate/', views.trigger_report_generation, name='generate-reports'),
 ]
