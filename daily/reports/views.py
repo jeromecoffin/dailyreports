@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from reports.form import PreferencesForm
 from reports.models import UserPreferences
 from reports.ai import generate_daily_reports
+from reports.email import send_daily_report_emails
 
 def preferences_view(request):
     if request.method == 'POST':
@@ -30,3 +31,14 @@ def trigger_report_generation(request):
         return redirect('preferences')  # Redirect to success page or homepage
 
     return render(request, 'reports/generate.html')
+
+def trigger_email_generation(request):
+    """
+    View to trigger daily email generation manually.
+    """
+    if request.method == 'POST':
+        # Call the function to generate reports
+        send_daily_report_emails()
+        return redirect('preferences')  # Redirect to success page or homepage
+
+    return render(request, 'reports/email.html')
